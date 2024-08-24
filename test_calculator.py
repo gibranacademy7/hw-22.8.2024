@@ -50,47 +50,45 @@ def test_calculator_div_zero_error_phase1():
     try:
         actual: int = calculator.divide(x, y);
         assert False  # fail the test
-    except ZeroDivisionError as e:
+    except ZeroDivisionError as err:
         assert True  # pass the test
 
 def test_calculator_div_zero_error_phase2():
     x: int = 99
     y: int = 0
-    with pytest.raises(ZeroDivisionError) as ex:
+    with pytest.raises(ZeroDivisionError) as err:
         actual: int = calculator.divide(x, y)
-
-    assert str(ex.value) == "Cannot divide by zero!"
+    assert str(err.value) == "Cannot divide by zero!"
 
 def test_calculator_power():
     x: int = 2
     y: int = 4
     exepected: int = 16
     actual: int = calculator.power(x, y);
-
     assert actual == exepected
+
 
 def test_calculator_power():
     x: int = 3
     y: int = 2
     exepected: int = 9
     actual: int = calculator.power(x, y);
-
     assert actual == exepected
+
 
 def test_calculator_power():
     x: int = 9
     y: int = 0
     exepected: int = 1
     actual: int = calculator.power(x, y);
-
     assert actual == exepected
+
 
 def test_calculator_sqrt():
     x: int = 25
     expected: int = 5
     import math
     actual: int = calculator.sqrt(x);
-
     assert expected ==actual
 
 
@@ -100,7 +98,6 @@ def test_calculator_sqrt():
 
     with pytest.raises(ValueError) as e:
         actual: int = calculator.sqrt(x);
-
     assert str(e.value) == "math domain error"
 
 
@@ -108,7 +105,6 @@ def test_calculator_prime():
     x: int = 1
     expected: bool = False
     actual: bool = calculator.is_prime(x);
-
     assert expected == actual
 
 
@@ -116,7 +112,6 @@ def test_calculator_prime():
     x: int = 2
     expexted: bool = True
     actual: bool = calculator.is_prime(x);
-
     assert  actual == expexted
 
 
@@ -124,51 +119,51 @@ def test_calculator_prime():
     x: int = 16
     expected: bool = False
     actual: bool = calculator.is_prime(x);
-    assert expected==actual
+    assert expected == actual
 
 
 def test_calculator_prime():
     x: int = -3
     expected: bool = False
     actual: bool = calculator.is_prime(x)
-    assert expected==actual
+    assert expected == actual
 
 
 def test_calculator_prime():
     x: int = 0
     expected: bool = False
     actual: bool = calculator.is_prime(x);
-    assert expected==actual
+    assert expected == actual
 
 
-def test_calculator_factional():
+def test_calculator_factorial():
     x: int = 4
     expected: int = 24
     actual: int = calculator.factorial(x);
-    assert expected==actual
+    assert expected == actual
 
 
-def test_calculator_factional():
+def test_calculator_factorial():
     x: int = 0
     expected: int = 1
     actual: int = calculator.factorial(x);
-    assert expected==actual
+    assert expected == actual
 
 
-def test_calculator_factional():
+def test_calculator_factorial():
     x: int = 1
     expected: int = 1
     actual: int = calculator.factorial(x);
-    assert expected==actual
+    assert expected == actual
 
 
-def test_calculator_factional():
+def test_calculator_factorial():
     x: int = 5
     expected: int = 120
     actual: int = calculator.factorial(x);
-    assert expected==actual
+    assert expected == actual
 
-def test_calculator_factional():
+def test_calculator_factorial():
     x: int = -3
     with pytest.raises(ValueError) as e:
         actual: int = calculator.factorial(x);
